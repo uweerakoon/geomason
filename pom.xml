@@ -1,0 +1,138 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.gmu.cs</groupId>
+  <artifactId>geomason</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>geomason</name>
+  <url>https://cs.gmu.edu/~eclab/projects/mason/extensions/geomason/</url>
+  
+  <build>
+  
+    <directory>target</directory>
+    <outputDirectory>target/classes</outputDirectory>
+    <finalName>${artifactId}-${version}</finalName>
+    <testOutputDirectory>target/test-classes</testOutputDirectory>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <scriptSourceDirectory>src/main/scripts</scriptSourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+    </resources>
+    <testResources>
+      <testResource>
+        <directory>src/test/resources</directory>
+      </testResource>
+    </testResources>
+    
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <attach>true</attach>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.2</version>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <repositories>
+    <repository>
+      <id>osgeo</id>
+      <name>Open Source Geospatial Foundation Repository</name>
+      <url>http://download.osgeo.org/webdav/geotools/</url>
+    </repository>
+  </repositories>
+  
+  <properties>
+    <mason.version>2.0-SNAPSHOT</mason.version>
+    <jts.version>1.13</jts.version>
+    <csv4j.version>0.4.0</csv4j.version>
+    <commons-math3.version>3.6.1</commons-math3.version>
+    <geotools.version>10.3</geotools.version>
+    <gt-shapefile.version>${geotools.version}</gt-shapefile.version>
+    <gt-swing.version>${geotools.version}</gt-swing.version>
+    <ucar.version>4.6.11</ucar.version>
+    <gdal.version>1.11.2</gdal.version>
+    <junit.version>4.12</junit.version>
+  </properties>
+  
+  <dependencies>
+  
+    <dependency>
+      <groupId>edu.gmu.cs</groupId>
+      <artifactId>mason</artifactId>
+      <version>${mason.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>com.vividsolutions</groupId>
+      <artifactId>jts</artifactId>
+      <version>${jts.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>net.sf.csv4j</groupId>
+      <artifactId>csv4j</artifactId>
+      <version>${csv4j.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-math3</artifactId>
+      <version>${commons-math3.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt-shapefile</artifactId>
+      <version>${gt-shapefile.version}</version>
+    </dependency>
+        
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt-swing</artifactId>
+      <version>${gt-swing.version}</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>ucar</groupId>
+      <artifactId>ucar</artifactId>
+      <version>${ucar.version}</version>
+    </dependency>
+    
+    <dependency>
+     <groupId>org.gdal</groupId>
+     <artifactId>gdal</artifactId>
+     <version>${gdal.version}</version>
+    </dependency>
+    
+    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>
